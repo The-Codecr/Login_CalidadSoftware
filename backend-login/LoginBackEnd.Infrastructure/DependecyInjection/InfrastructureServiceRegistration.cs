@@ -16,7 +16,7 @@ public static class InfrastructureServiceRegistration
         services.AddJwtAuthentication(config);
 
         // Repositorios
-        services.AddScoped<IUserRepository, InMemoryUserRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
 
         // Servicios
         services.AddScoped<IAuthService, AuthService>();

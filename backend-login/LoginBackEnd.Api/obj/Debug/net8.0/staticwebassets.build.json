@@ -1,1 +1,12 @@
-{"Version":1,"Hash":"lkeweUArj3xOrwNV+wFHcHEhPCwB2mIufhV4JFhZzYU=","Source":"LoginBackEnd.Api","BasePath":"_content/LoginBackEnd.Api","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "tpNoI5ckx09rXOl84reWssJBJt/acc9JObnVHlp/fyU=",
+  "Source": "LoginBackend.Api",
+  "BasePath": "_content/LoginBackend.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

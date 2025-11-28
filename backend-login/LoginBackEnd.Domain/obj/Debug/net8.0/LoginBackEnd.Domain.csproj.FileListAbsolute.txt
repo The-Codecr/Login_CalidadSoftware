@@ -9,3 +9,16 @@
 /Users/thecode/Desktop/backend-login/backend-login/LoginBackEnd.Domain/obj/Debug/net8.0/refint/LoginBackEnd.Domain.dll
 /Users/thecode/Desktop/backend-login/backend-login/LoginBackEnd.Domain/obj/Debug/net8.0/LoginBackEnd.Domain.pdb
 /Users/thecode/Desktop/backend-login/backend-login/LoginBackEnd.Domain/obj/Debug/net8.0/ref/LoginBackEnd.Domain.dll
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\bin\Debug\net8.0\LoginBackEnd.Domain.deps.json
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\bin\Debug\net8.0\LoginBackEnd.Domain.dll
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\bin\Debug\net8.0\LoginBackEnd.Domain.pdb
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\LoginBackEnd.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\LoginBackEnd.Domain.AssemblyInfoInputs.cache
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\LoginBackEnd.Domain.AssemblyInfo.cs
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\LoginBackEnd.Domain.csproj.CoreCompileInputs.cache
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\LoginBackEnd.Domain.sourcelink.json
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\LoginBackEnd.Domain.dll
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\refint\LoginBackEnd.Domain.dll
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\LoginBackEnd.Domain.pdb
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\ref\LoginBackEnd.Domain.dll
+C:\Evelio\yo\Capacitacion\CENFOTEC\Cuatri03\03-Calidad_Pruebas\Proyecto\Login_CalidadSoftware\backend-login\LoginBackEnd.Domain\obj\Debug\net8.0\LoginBackEnd.Domain.csproj.AssemblyReference.cache

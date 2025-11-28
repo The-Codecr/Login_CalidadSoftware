@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/thecode/Desktop/Login_CalidadSoftware/backend-login/LoginBackEnd.Domain/LoginBackEnd.Domain.csproj": {}
+    "C:\\Evelio\\yo\\Capacitacion\\CENFOTEC\\Cuatri03\\03-Calidad_Pruebas\\Proyecto\\Login_CalidadSoftware\\backend-login\\LoginBackEnd.Domain\\LoginBackEnd.Domain.csproj": {}
   },
   "projects": {
-    "/Users/thecode/Desktop/Login_CalidadSoftware/backend-login/LoginBackEnd.Domain/LoginBackEnd.Domain.csproj": {
+    "C:\\Evelio\\yo\\Capacitacion\\CENFOTEC\\Cuatri03\\03-Calidad_Pruebas\\Proyecto\\Login_CalidadSoftware\\backend-login\\LoginBackEnd.Domain\\LoginBackEnd.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/thecode/Desktop/Login_CalidadSoftware/backend-login/LoginBackEnd.Domain/LoginBackEnd.Domain.csproj",
+        "projectUniqueName": "C:\\Evelio\\yo\\Capacitacion\\CENFOTEC\\Cuatri03\\03-Calidad_Pruebas\\Proyecto\\Login_CalidadSoftware\\backend-login\\LoginBackEnd.Domain\\LoginBackEnd.Domain.csproj",
         "projectName": "LoginBackEnd.Domain",
-        "projectPath": "/Users/thecode/Desktop/Login_CalidadSoftware/backend-login/LoginBackEnd.Domain/LoginBackEnd.Domain.csproj",
-        "packagesPath": "/Users/thecode/.nuget/packages/",
-        "outputPath": "/Users/thecode/Desktop/Login_CalidadSoftware/backend-login/LoginBackEnd.Domain/obj/",
+        "projectPath": "C:\\Evelio\\yo\\Capacitacion\\CENFOTEC\\Cuatri03\\03-Calidad_Pruebas\\Proyecto\\Login_CalidadSoftware\\backend-login\\LoginBackEnd.Domain\\LoginBackEnd.Domain.csproj",
+        "packagesPath": "C:\\Users\\gmoralesa\\.nuget\\packages\\",
+        "outputPath": "C:\\Evelio\\yo\\Capacitacion\\CENFOTEC\\Cuatri03\\03-Calidad_Pruebas\\Proyecto\\Login_CalidadSoftware\\backend-login\\LoginBackEnd.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/thecode/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\gmoralesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://nuget.org/api/v2": {}
         },
         "frameworks": {
           "net8.0": {
@@ -38,11 +44,17 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.300"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.5.2, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -59,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
