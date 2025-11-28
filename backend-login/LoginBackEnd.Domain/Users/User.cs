@@ -6,7 +6,7 @@ public class User
 {
     /// Identificador único del usuario (Mongo usará este campo como _id).
     [BsonId]
-    [BsonRepresentation(BsonType.String)]
+    [BsonRepresentation(BsonType.String)] 
     public Guid Id { get; }
     public string Email { get; }
     public string PasswordHash { get; }

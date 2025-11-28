@@ -37,7 +37,7 @@ namespace LoginBackEnd.Infrastructure.Users
         }
 
         /// <summary>
-        /// Verifica si existe un usuario por email.
+        /// Verifica si existe un usuario por email. 
         /// </summary>
         public async Task<bool> ExistsByEmailAsync(string email)
         {

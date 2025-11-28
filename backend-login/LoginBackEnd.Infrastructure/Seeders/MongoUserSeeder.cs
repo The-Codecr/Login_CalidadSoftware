@@ -13,7 +13,7 @@ namespace LoginBackEnd.Infrastructure.Seeders
         }
 
         /// <summary>
-        /// Ejecuta la siembra de datos iniciales.
+        /// Ejecuta la siembra de datos iniciales. 
         /// </summary>
         public async Task SeedAsync()
         {

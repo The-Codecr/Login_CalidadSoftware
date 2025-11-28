@@ -12,7 +12,7 @@ public static class InfrastructureServiceRegistration
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
     {
-        // Register JWT
+        // Register JWT 
         services.AddJwtAuthentication(config);
 
         // Repositorios

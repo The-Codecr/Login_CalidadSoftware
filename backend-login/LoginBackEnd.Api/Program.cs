@@ -13,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // ***********************************************************
 
-// Registrar MongoDB
+// Registrar MongoDB 
 builder.Services.AddSingleton<IMongoClient>(sp =>
     new MongoClient(builder.Configuration["Mongo:ConnectionString"])
 );
