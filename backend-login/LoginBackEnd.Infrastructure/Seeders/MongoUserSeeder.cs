@@ -24,7 +24,10 @@ namespace LoginBackEnd.Infrastructure.Seeders
                 var admin = new User(
                     id: Guid.NewGuid(),
                     email: "admin@test.com",
-                    passwordHash: "123456" // Esto debe ser un hash en producción
+                    passwordHash: "123456", // Esto debe ser un hash en producción
+                    loginAttempts: 0,
+                    isBlocked: false,
+                    blockedUntil: null
                 );
                 await _collection.InsertOneAsync(admin);
             }
@@ -36,7 +39,10 @@ namespace LoginBackEnd.Infrastructure.Seeders
                 var user1 = new User(
                     id: Guid.NewGuid(),
                     email: "leonardo@test.com",
-                    passwordHash: "leonardo123"
+                    passwordHash: "leonardo123",
+                    loginAttempts: 0,
+                    isBlocked: false,
+                    blockedUntil: null
                 );
                 await _collection.InsertOneAsync(user1);
             }
@@ -48,7 +54,10 @@ namespace LoginBackEnd.Infrastructure.Seeders
                 var user1 = new User(
                     id: Guid.NewGuid(),
                     email: "duvan@test.com",
-                    passwordHash: "duvan123"
+                    passwordHash: "duvan123",
+                    loginAttempts: 0,
+                    isBlocked: false,
+                    blockedUntil: null
                 );
                 await _collection.InsertOneAsync(user1);
             }
@@ -60,7 +69,10 @@ namespace LoginBackEnd.Infrastructure.Seeders
                 var user1 = new User(
                     id: Guid.NewGuid(),
                     email: "evelio@test.com",
-                    passwordHash: "evelio123"
+                    passwordHash: "evelio123",
+                    loginAttempts: 0,
+                    isBlocked: false,
+                    blockedUntil: null
                 );
                 await _collection.InsertOneAsync(user1);
             }

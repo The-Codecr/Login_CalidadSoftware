@@ -9,7 +9,8 @@ public class InMemoryUserRepository : IUserRepository
         new User(
             Guid.NewGuid(),
             "admin@test.com",
-            "123456"  // Esto luego será hash
+            "123456",  // Esto luego será hash
+            0
         )
     };
 
@@ -20,5 +21,10 @@ public class InMemoryUserRepository : IUserRepository
         );
 
         return Task.FromResult(user);
+    }
+
+    public Task UpdateAsync(User user)
+    {
+        return Task.CompletedTask;
     }
 }

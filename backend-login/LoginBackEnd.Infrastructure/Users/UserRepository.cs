@@ -53,5 +53,16 @@ namespace LoginBackEnd.Infrastructure.Users
         {
             return await _collection.Find(_ => true).ToListAsync();
         }
+
+        /// <summary>
+        /// Actualiza un usuario completo en MongoDB. Se actualiza el conteo de intentos de login.
+        /// Se usa ReplaceOneAsync porque guardas la entidad Domain directamente.
+        /// </summary>
+        public async Task UpdateAsync(User user)
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.Email, user.Email);
+
+            await _collection.ReplaceOneAsync(filter, user);
+        }
     }
 }
