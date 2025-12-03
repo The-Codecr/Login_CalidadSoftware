@@ -1,0 +1,19 @@
+---
+import { MdNotifications, MdAccountCircle } from "react-icons/md";
+---
+
+<nav class="h-16 bg-gray-900 shadow flex items-center justify-end px-6 fixed top-0 left-0 right-0">
+  <div class="flex items-center gap-6">
+    <button class="text-white hover:text-gray-800 focus:outline-none flex items-center" aria-label="Notifications">
+      <MdNotifications size="24" />
+    </button>
+    <button class="flex items-center gap-2 text-white hover:text-gray-900 focus:outline-none" aria-label="User Menu">
+      <MdAccountCircle size="30" />
+    </button>
+  </div>
+</nav>
+<style>
+  nav {
+    backdrop-filter: blur(10px);
+  }
+</style>

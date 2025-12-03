@@ -1,23 +1,17 @@
 ---
 import DashboardLayout from "@layouts/Dashboard.astro";
+import Sidebar from "@components/sidebar.astro"
+import DashboardContent from "@components/dashboardContent.astro";
+import Navbar from "@components/navbar.astro";
 export const prerender = false;
 ---
 
 <DashboardLayout>
-  
-  <div class="flex flex-col items-center justify-center min-h-screen">
-    <div class="p-4">
-      <h1 class="text-2xl font-bold mb-4">Dashboard</h1>
-      <p>Welcome to the dashboard! Here you can find an overview of your activities and statistics.</p>
-    </div>
-  
-    <div>
-      <button id="logoutBtn" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg">
-        Logout
-      </button>
-    </div>
+  <Navbar />
+  <div class="flex">
+    <Sidebar />
+    <DashboardContent />
   </div>
-
 </DashboardLayout>
 
 <script type="module">
@@ -25,16 +19,8 @@ export const prerender = false;
     if (sessionStorage.getItem("login_success") === "1") {
       sessionStorage.removeItem("login_success");
 
-      const { notify } = await import("../src/libs/toast/client");
+      const { notify } = await import("/src/libs/toast/client");
       notify.success("Login successful!");
     }
-  });
-</script>
-
-<script type="module">
-  import { logout } from "../src/scripts/auth";
-
-  document.getElementById("logoutBtn")?.addEventListener("click", () => {
-    logout();
   });
 </script>
