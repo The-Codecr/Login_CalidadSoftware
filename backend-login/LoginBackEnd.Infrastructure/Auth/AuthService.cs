@@ -20,13 +20,24 @@ public class AuthService : IAuthService
 
     public async Task<LoginResponse> LoginAsync(LoginRequest request)
     {
+
+        if(!request.Email.Contains("@") && !string.IsNullOrWhiteSpace(request.Email))
+        {
+            return new LoginResponse
+            {
+                Success = false,
+                Message = "Ingresa un correo electrónico válido (ejemplo: usuario@dominio.com)"
+            };
+        }
+
+
         if (string.IsNullOrWhiteSpace(request.Email) ||
             string.IsNullOrWhiteSpace(request.Password))
         {
             return new LoginResponse
             {
                 Success = false,
-                Message = "Email and password are required"
+                Message = "Email and Contraseña son requeridos"
             };
         }
 
@@ -38,7 +49,7 @@ public class AuthService : IAuthService
             return new LoginResponse
             {
                 Success = false,
-                Message = "Invalid Login Credentials"
+                Message = "Credenciales invalidas"
             };
         }
 
@@ -48,7 +59,7 @@ public class AuthService : IAuthService
             return new LoginResponse
             {
                 Success = false,
-                Message = $"Account locked until {user.BlockedUntil?.ToLocalTime()}"
+                Message = $"Cuenta bloqueada hasta {user.BlockedUntil?.ToLocalTime()}"
             };
         }
 
@@ -87,7 +98,9 @@ public class AuthService : IAuthService
         {
             Success = true,
             Token = token,
-            Message = "Login Successful"
+            Message = "Inicio de Sesión Exitoso" +
+            ""
         };
     }
+
 }
