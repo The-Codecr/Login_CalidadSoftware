@@ -20,7 +20,6 @@ public class AuthService : IAuthService
 
     public async Task<LoginResponse> LoginAsync(LoginRequest request)
     {
-
         if(!request.Email.Contains("@") && !string.IsNullOrWhiteSpace(request.Email))
         {
             return new LoginResponse
@@ -30,14 +29,13 @@ public class AuthService : IAuthService
             };
         }
 
-
         if (string.IsNullOrWhiteSpace(request.Email) ||
             string.IsNullOrWhiteSpace(request.Password))
         {
             return new LoginResponse
             {
                 Success = false,
-                Message = "Email and Contraseña son requeridos"
+                Message = "Email y contraseña son requeridos"
             };
         }
 
@@ -45,15 +43,13 @@ public class AuthService : IAuthService
 
         if (user is null)
         {
-            // No exponer si el usuario existe o no
             return new LoginResponse
             {
                 Success = false,
-                Message = "Credenciales invalidas"
+                Message = "Credenciales inválidas"
             };
         }
 
-        // Verificar si el usuario está bloqueado
         if (user.IsStillBlocked())
         {
             return new LoginResponse
@@ -63,12 +59,10 @@ public class AuthService : IAuthService
             };
         }
 
-        // Contraseña incorrecta
         if (user.PasswordHash != request.Password)
         {
             user.IncrementLoginAttempts();
 
-            // Si alcanza límite → bloquear
             if (user.LoginAttempts >= MAX_ATTEMPTS)
             {
                 user.Block(BLOCK_MINUTES);
@@ -80,12 +74,11 @@ public class AuthService : IAuthService
             {
                 Success = false,
                 Message = user.IsBlocked
-                    ? $"Login bloqueado por {BLOCK_MINUTES} minutos"
+                    ? $"Cuenta bloqueada por {BLOCK_MINUTES} minutos"
                     : "Credenciales inválidas"
             };
         }
 
-        // Contraseña correcta → reset de intentos y bloqueo
         if (user.LoginAttempts > 0 || user.IsBlocked)
         {
             user.Unblock();
@@ -98,7 +91,7 @@ public class AuthService : IAuthService
         {
             Success = true,
             Token = token,
-            Message = "Inicio de Sesión Exitoso"
+            Message = "Inicio de sesión exitoso"
         };
     }
 
@@ -126,6 +119,17 @@ public class AuthService : IAuthService
             };
         }
 
+        // VALIDAR CONTRASEÑA
+        var (isValid, errorMessage) = PasswordValidator.Validate(request.Password);
+        if (!isValid)
+        {
+            return new ForgotPasswordResponse
+            {
+                Success = false,
+                Message = errorMessage
+            };
+        }
+
         // Buscar el usuario por email
         var user = await _userRepository.GetByEmailAsync(request.Email);
 
@@ -138,9 +142,8 @@ public class AuthService : IAuthService
             };
         }
 
-        // En producción, aquí validarías que el token sea válido
-        // Por ahora, asumimos que el token es válido si llegó hasta aquí
-        // TODO: Implementar validación de token (puede ser guardado en BD o en cache)
+        // En producción, validar que el token sea válido
+        // TODO: Implementar validación de token (BD o cache)
 
         // Actualizar la contraseña
         // NOTA: En producción deberías hashear la contraseña
