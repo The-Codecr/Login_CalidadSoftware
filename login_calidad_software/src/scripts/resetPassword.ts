@@ -28,7 +28,7 @@ export function setupResetPasswordForm() {
 
     try {
       
-        const APP_URL = import.meta.env.PUBLIC_RES_URL;
+        const APP_URL = import.meta.env.PUBLIC_API_URL;
 
         const res = await fetch(`${APP_URL}/forgotPassword`, {
           method: "POST",

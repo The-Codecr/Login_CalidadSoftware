@@ -84,6 +84,7 @@ app.UseCors("AllowAll");
 app.UseAuthentication();
 app.UseAuthorization();
 
+// Endpoint de Login
 app.MapPost("/auth/login", async (LoginRequest req, IAuthService auth) =>
 {
     var result = await auth.LoginAsync(req);
@@ -94,5 +95,15 @@ app.MapPost("/auth/login", async (LoginRequest req, IAuthService auth) =>
     return Results.Ok(result);
 });
 
-app.Run();
+// Endpoint de Forgot Password
+app.MapPost("/forgotPassword", async (ForgotPasswordRequest req, IAuthService auth) =>
+{
+    var result = await auth.ForgotPasswordAsync(req);
 
+    if (!result.Success)
+        return Results.BadRequest(result);
+
+    return Results.Ok(result);
+});
+
+app.Run();

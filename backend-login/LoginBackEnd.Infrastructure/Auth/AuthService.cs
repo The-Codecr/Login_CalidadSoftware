@@ -80,8 +80,8 @@ public class AuthService : IAuthService
             {
                 Success = false,
                 Message = user.IsBlocked
-                    ? $"Account locked for {BLOCK_MINUTES} minutes"
-                    : "Invalid Login Credentials"
+                    ? $"Login bloqueado por {BLOCK_MINUTES} minutos"
+                    : "Credenciales inválidas"
             };
         }
 
@@ -98,9 +98,67 @@ public class AuthService : IAuthService
         {
             Success = true,
             Token = token,
-            Message = "Inicio de Sesión Exitoso" +
-            ""
+            Message = "Inicio de Sesión Exitoso"
         };
     }
 
+    public async Task<ForgotPasswordResponse> ForgotPasswordAsync(ForgotPasswordRequest request)
+    {
+        // Validar que los campos no estén vacíos
+        if (string.IsNullOrWhiteSpace(request.Email) ||
+            string.IsNullOrWhiteSpace(request.Token) ||
+            string.IsNullOrWhiteSpace(request.Password))
+        {
+            return new ForgotPasswordResponse
+            {
+                Success = false,
+                Message = "Email, token y contraseña son requeridos"
+            };
+        }
+
+        // Validar formato de email
+        if (!request.Email.Contains("@"))
+        {
+            return new ForgotPasswordResponse
+            {
+                Success = false,
+                Message = "Email inválido"
+            };
+        }
+
+        // Buscar el usuario por email
+        var user = await _userRepository.GetByEmailAsync(request.Email);
+
+        if (user is null)
+        {
+            return new ForgotPasswordResponse
+            {
+                Success = false,
+                Message = "Usuario no encontrado"
+            };
+        }
+
+        // En producción, aquí validarías que el token sea válido
+        // Por ahora, asumimos que el token es válido si llegó hasta aquí
+        // TODO: Implementar validación de token (puede ser guardado en BD o en cache)
+
+        // Actualizar la contraseña
+        // NOTA: En producción deberías hashear la contraseña
+        user.UpdatePassword(request.Password);
+
+        // Desbloquear usuario si estaba bloqueado
+        if (user.IsBlocked)
+        {
+            user.Unblock();
+        }
+
+        // Guardar cambios en la base de datos
+        await _userRepository.UpdateAsync(user);
+
+        return new ForgotPasswordResponse
+        {
+            Success = true,
+            Message = "Contraseña actualizada correctamente"
+        };
+    }
 }

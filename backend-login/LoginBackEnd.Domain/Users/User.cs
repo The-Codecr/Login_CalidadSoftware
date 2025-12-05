@@ -10,7 +10,7 @@ public class User
     [BsonRepresentation(BsonType.String)]
     public Guid Id { get; }
     public string Email { get;  }
-    public string PasswordHash { get;  }
+    public string PasswordHash { get; private set; }
 
     public int LoginAttempts { get; private set; }
     public bool IsBlocked { get; private set; }
@@ -57,5 +57,11 @@ public class User
         // Si ya expiró el bloqueo
         Unblock();
         return false;
+    }
+
+    // Método para actualizar la contraseña
+    public void UpdatePassword(string newPasswordHash)
+    {
+        PasswordHash = newPasswordHash;
     }
 }

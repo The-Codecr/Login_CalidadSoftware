@@ -39,7 +39,7 @@ namespace LoginBackEnd.Infrastructure.Seeders
                 var user1 = new User(
                     id: Guid.NewGuid(),
                     email: "leonardo@test.com",
-                    passwordHash: "leonardo123",
+                    passwordHash: "leo123",
                     loginAttempts: 0,
                     isBlocked: false,
                     blockedUntil: null
@@ -69,6 +69,20 @@ namespace LoginBackEnd.Infrastructure.Seeders
                 var user1 = new User(
                     id: Guid.NewGuid(),
                     email: "evelio@test.com",
+                    passwordHash: "evelio123",
+                    loginAttempts: 0,
+                    isBlocked: false,
+                    blockedUntil: null
+                );
+                await _collection.InsertOneAsync(user1);
+            }
+            // Verificar si ya existe
+            exists = await _collection.Find(u => u.Email == "emoralesan@cenfotec.ac.cr").AnyAsync();
+            if (!exists)
+            {
+                var user1 = new User(
+                    id: Guid.NewGuid(),
+                    email: "emoralesan@ucenfotec.ac.cr",
                     passwordHash: "evelio123",
                     loginAttempts: 0,
                     isBlocked: false,
