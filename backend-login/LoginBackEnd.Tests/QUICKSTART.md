@@ -1,6 +1,6 @@
-# 🚀 Guía de Instalación Rápida - LoginBackEnd.Tests
+# Guía de Instalación Rápida - LoginBackEnd.Tests
 
-## ⚡ Instalación en 5 Pasos
+## Instalación en 5 Pasos
 
 ### Paso 1: Verificar Requisitos
 ```bash
@@ -49,7 +49,7 @@ dotnet build
 dotnet test
 ```
 
-## 🎉 ¡Listo!
+## ¡Listo!
 
 Deberías ver una salida como esta:
 
@@ -59,7 +59,7 @@ Passed!  - Failed:     0, Passed:    87, Skipped:     0, Total:    87
 
 ---
 
-## 🔧 Solución de Problemas
+## Solución de Problemas
 
 ### Error: "Project not found"
 ```bash
@@ -87,7 +87,7 @@ dotnet restore
 
 ---
 
-## 📋 Checklist de Instalación
+## Checklist de Instalación
 
 - [ ] .NET 8.0 SDK instalado
 - [ ] Proyecto copiado en ubicación correcta
@@ -98,7 +98,7 @@ dotnet restore
 
 ---
 
-## 🎯 Próximos Pasos
+## Próximos Pasos
 
 Una vez instalado, puedes:
 
@@ -131,7 +131,7 @@ Una vez instalado, puedes:
 
 ---
 
-## 🆘 ¿Necesitas Ayuda?
+## ¿Necesitas Ayuda?
 
 Si tienes problemas:
 
@@ -143,4 +143,4 @@ Si tienes problemas:
 ---
 
 **Tiempo estimado de instalación**: 5 minutos  
-**Dificultad**: ⭐ Fácil
+**Dificultad**: Fácil
