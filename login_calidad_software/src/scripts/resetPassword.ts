@@ -1,4 +1,5 @@
 import { toast } from "sonner";
+import { validatePassword } from "@src/utils/passwordValidator";
 
 export function setupResetPasswordForm() {
   const form = document.getElementById("newPasswordForm") as HTMLFormElement | null;
@@ -26,16 +27,22 @@ export function setupResetPasswordForm() {
       return;
     }
 
-    try {
-      
-        const APP_URL = import.meta.env.PUBLIC_API_URL;
+    // 🔐 VALIDAR CONTRASEÑA
+    const validation = validatePassword(pass);
+    if (!validation.isValid) {
+      const errorMessage = validation.errors.join(", ");
+      toast.error(`Contraseña inválida: ${errorMessage}`);
+      return;
+    }
 
-        const res = await fetch(`${APP_URL}/forgotPassword`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, token, password: pass }),
-        });
-        
+    try {
+      const APP_URL = import.meta.env.PUBLIC_API_URL;
+
+      const res = await fetch(`${APP_URL}/forgotPassword`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, token, password: pass }),
+      });
 
       const data = await res.json();
 

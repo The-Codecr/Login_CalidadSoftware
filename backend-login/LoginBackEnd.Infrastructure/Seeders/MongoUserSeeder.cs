@@ -24,7 +24,7 @@ namespace LoginBackEnd.Infrastructure.Seeders
                 var admin = new User(
                     id: Guid.NewGuid(),
                     email: "admin@test.com",
-                    passwordHash: "123456", // Esto debe ser un hash en producción
+                    passwordHash: "123456*", // Esto debe ser un hash en producción
                     loginAttempts: 0,
                     isBlocked: false,
                     blockedUntil: null
@@ -76,20 +76,41 @@ namespace LoginBackEnd.Infrastructure.Seeders
                 );
                 await _collection.InsertOneAsync(user1);
             }
-            // Verificar si ya existe
-            exists = await _collection.Find(u => u.Email == "emoralesan@cenfotec.ac.cr").AnyAsync();
+
+
+            // ***************************************************************
+            // Correos reales para pruebas de recuperación contraseña
+            // ***************************************************************
+
+            exists = await _collection.Find(u => u.Email == "emoralesan@ucenfotec.ac.cr").AnyAsync();
             if (!exists)
             {
                 var user1 = new User(
                     id: Guid.NewGuid(),
                     email: "emoralesan@ucenfotec.ac.cr",
-                    passwordHash: "evelio123",
+                    passwordHash: "Abc123*",
                     loginAttempts: 0,
                     isBlocked: false,
                     blockedUntil: null
                 );
                 await _collection.InsertOneAsync(user1);
             }
+
+            // Verificar si ya existe
+            exists = await _collection.Find(u => u.Email == "29andrey10@gmail.com").AnyAsync();
+            if (!exists)
+            {
+                var user1 = new User(
+                    id: Guid.NewGuid(),
+                    email: "29andrey10@gmail.com",
+                    passwordHash: "Abc123*",
+                    loginAttempts: 0,
+                    isBlocked: false,
+                    blockedUntil: null
+                );
+                await _collection.InsertOneAsync(user1);
+            }
+
         }
     }
 }
