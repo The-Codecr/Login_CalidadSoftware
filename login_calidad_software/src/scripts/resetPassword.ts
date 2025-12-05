@@ -1,48 +1,56 @@
-
-import { sendEmail } from "@libs";
 import { toast } from "sonner";
 
 export function setupResetPasswordForm() {
-  const form = document.getElementById("resetForm") as HTMLFormElement | null;
-  const emailInput = document.getElementById("email") as HTMLInputElement | null;
-  const errorSpan = document.getElementById("mensajeError") as HTMLSpanElement | null;
+  const form = document.getElementById("newPasswordForm") as HTMLFormElement | null;
 
-  if (!form || !emailInput || !errorSpan) {
-    console.error("No se encontró el formulario de reset password.");
+  if (!form) {
+    console.error("No se encontró el formulario de restablecimiento de contraseña.");
     return;
   }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const email = emailInput.value.trim();
+    const pass = (document.getElementById("password") as HTMLInputElement)?.value;
+    const pass2 = (document.getElementById("password2") as HTMLInputElement)?.value;
+    const email = (document.getElementById("email") as HTMLInputElement)?.value;
+    const token = (document.getElementById("token") as HTMLInputElement)?.value;
 
-    if (!email || !email.includes("@")) {
-      errorSpan.textContent = "Ingrese un correo válido.";
+    if (!pass || !pass2 || !email || !token) {
+      toast.error("Complete todos los campos.");
       return;
     }
 
-    errorSpan.textContent = "";
-
-    const APP_URL = import.meta.env.PUBLIC_API_URL;
-
-    const resetLink = `${APP_URL}/reset-password?email=${encodeURIComponent(email)}&token=${crypto.randomUUID()}`;
+    if (pass !== pass2) {
+      toast.error("Las contraseñas no coinciden.");
+      return;
+    }
 
     try {
-      const result = await sendEmail({
-        user_email: email,
-        reset_link: resetLink
-      });
+      
+        const APP_URL = import.meta.env.PUBLIC_RES_URL;
 
-      if (result.success) {
-        toast.success("Se envió el enlace de restablecimiento a tu correo.");
-        form.reset();
+        const res = await fetch(`${APP_URL}/forgotPassword`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, token, password: pass }),
+        });
+        
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success("Contraseña actualizada correctamente.");
+
+        setTimeout(() => {
+          window.location.href = "/login";
+        }, 1500);
       } else {
-        toast.error("Error enviando correo. Intente más tarde.");
+        toast.error(data.message || "Error al actualizar contraseña.");
       }
-    } catch (err) {
-      console.error("Error enviando correo:", err);
-      toast.error("No se pudo enviar el correo.");
+    } catch (error) {
+      console.error("Error al conectar con el servidor:", error);
+      toast.error("Error de conexión con el servidor.");
     }
   });
 }
