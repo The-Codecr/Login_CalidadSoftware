@@ -2,12 +2,12 @@
 
 Este proyecto contiene las pruebas unitarias para el backend de login, específicamente enfocadas en la clase `User` del dominio.
 
-## 📋 Requisitos
+## Requisitos
 
 - .NET 8.0 SDK
 - Un IDE compatible (Visual Studio, VS Code, Rider)
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 LoginBackEnd.Tests/
@@ -18,14 +18,14 @@ LoginBackEnd.Tests/
 └── README.md                  # Este archivo
 ```
 
-## 🧪 Frameworks y Librerías Utilizadas
+## Frameworks y Librerías Utilizadas
 
 - **xUnit**: Framework de pruebas unitarias
 - **FluentAssertions**: Librería para assertions más legibles
 - **Moq**: Framework de mocking (para futuras pruebas)
 - **coverlet.collector**: Herramienta para cobertura de código
 
-## 🚀 Cómo Ejecutar las Pruebas
+## Cómo Ejecutar las Pruebas
 
 ### Opción 1: Desde la línea de comandos
 
@@ -55,33 +55,33 @@ dotnet test --collect:"XPlat Code Coverage"
 2. Las pruebas aparecerán automáticamente en el panel lateral
 3. Hacer clic en "Run All Tests"
 
-## 📊 Cobertura de Pruebas
+## Cobertura de Pruebas
 
 Las pruebas unitarias cubren los siguientes aspectos de la clase `User`:
 
-### ✅ Constructor
+### Constructor
 - Creación de usuario con valores correctos
 - Valores por defecto
 
-### ✅ Gestión de Intentos de Login
+### Gestión de Intentos de Login
 - `IncrementLoginAttempts()`: Incremento de intentos
 - `ResetLoginAttempts()`: Reinicio de intentos
 
-### ✅ Bloqueo de Usuario
+### Bloqueo de Usuario
 - `Block()`: Bloqueo con diferentes duraciones
 - `Unblock()`: Desbloqueo y reinicio de propiedades
 - `IsStillBlocked()`: Verificación de estado de bloqueo
 
-### ✅ Actualización de Contraseña
+### Actualización de Contraseña
 - `UpdatePassword()`: Cambio de contraseña
 
-### ✅ Escenarios de Integración
+### Escenarios de Integración
 - Intentos fallidos de login hasta bloqueo
 - Login exitoso después de fallos
 - Recuperación de contraseña con desbloqueo
 - Expiración de bloqueo temporal
 
-## 📝 Ejemplos de Casos de Prueba
+## Ejemplos de Casos de Prueba
 
 ### Ejemplo 1: Verificar Bloqueo de Usuario
 
@@ -121,7 +121,7 @@ public void IsStillBlocked_CuandoBloqueadoYFechaExpirada_DebeDesbloquearYRetorna
 }
 ```
 
-## 🔧 Integración con el Proyecto Principal
+## Integración con el Proyecto Principal
 
 Para agregar este proyecto a la solución principal:
 
@@ -130,7 +130,7 @@ Para agregar este proyecto a la solución principal:
 dotnet sln LoginBackEnd.sln add LoginBackEnd.Tests/LoginBackEnd.Tests.csproj
 ```
 
-## 📈 Estadísticas de Pruebas
+## Estadísticas de Pruebas
 
 | Categoría | Número de Pruebas |
 |-----------|-------------------|
@@ -144,7 +144,7 @@ dotnet sln LoginBackEnd.sln add LoginBackEnd.Tests/LoginBackEnd.Tests.csproj
 | Escenarios de Integración | 4 |
 | **TOTAL** | **22 pruebas** |
 
-## 🎯 Mejores Prácticas Implementadas
+## Mejores Prácticas Implementadas
 
 1. **Patrón AAA** (Arrange-Act-Assert): Todas las pruebas siguen este patrón
 2. **Nombres Descriptivos**: Los nombres de las pruebas describen claramente qué se está probando
@@ -152,7 +152,7 @@ dotnet sln LoginBackEnd.sln add LoginBackEnd.Tests/LoginBackEnd.Tests.csproj
 4. **Datos de Prueba**: Uso de datos parametrizados con `[Theory]` y `[InlineData]`
 5. **Cobertura Completa**: Se prueban tanto casos exitosos como casos límite
 
-## 🐛 Ejecutar Pruebas Específicas
+## Ejecutar Pruebas Específicas
 
 ```bash
 # Ejecutar solo las pruebas de bloqueo
@@ -165,13 +165,13 @@ dotnet test --filter "FullyQualifiedName~UserTests"
 dotnet test --filter "FullyQualifiedName~Block_DebeBloquerUsuarioYEstablecerFechaDeBloqueo"
 ```
 
-## 📚 Recursos Adicionales
+## Recursos Adicionales
 
 - [Documentación de xUnit](https://xunit.net/)
 - [Documentación de FluentAssertions](https://fluentassertions.com/)
 - [Mejores prácticas de pruebas unitarias en .NET](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
 
-## 🤝 Contribución
+## Contribución
 
 Para agregar nuevas pruebas:
 
@@ -180,6 +180,6 @@ Para agregar nuevas pruebas:
 3. Usar el patrón AAA (Arrange-Act-Assert)
 4. Asegurar que todas las pruebas pasen antes de hacer commit
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto de pruebas sigue la misma licencia que el proyecto principal LoginBackEnd.
