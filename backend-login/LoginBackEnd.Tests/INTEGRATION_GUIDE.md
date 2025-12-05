@@ -1,6 +1,6 @@
 # Guía de Integración del Proyecto de Pruebas
 
-## 📦 Pasos para Integrar LoginBackEnd.Tests en la Solución
+## Pasos para Integrar LoginBackEnd.Tests en la Solución
 
 ### 1. Copiar el Proyecto de Pruebas
 
@@ -49,7 +49,7 @@ dotnet build
 dotnet test
 ```
 
-## 🔍 Verificación de la Integración
+## Verificación de la Integración
 
 Si todo está correctamente configurado, deberías ver una salida similar a:
 
@@ -60,7 +60,7 @@ A total of 1 test files matched the specified pattern.
 Passed!  - Failed:     0, Passed:    22, Skipped:     0, Total:    22, Duration: < 1 s
 ```
 
-## 📋 Actualización del Archivo .sln (Manual)
+## Actualización del Archivo .sln (Manual)
 
 Si prefieres editar manualmente el archivo `.sln`, agrega estas líneas:
 
@@ -78,7 +78,7 @@ Y en la sección `GlobalSection(ProjectConfigurationPlatforms)`:
 {GUID}.Release|Any CPU.Build.0 = Release|Any CPU
 ```
 
-## 🎯 Configuración en VS Code
+## Configuración en VS Code
 
 Si usas VS Code, instala las siguientes extensiones:
 
@@ -98,7 +98,7 @@ Si usas VS Code, instala las siguientes extensiones:
 }
 ```
 
-## 🚀 Ejecución en CI/CD
+## Ejecución en CI/CD
 
 ### GitHub Actions Ejemplo:
 
@@ -132,7 +132,7 @@ jobs:
       uses: codecov/codecov-action@v3
 ```
 
-## 🔧 Solución de Problemas Comunes
+## Solución de Problemas Comunes
 
 ### Error: "Project not found"
 **Solución**: Verificar que las rutas relativas en el archivo `.csproj` son correctas:
@@ -153,7 +153,7 @@ dotnet restore
 dotnet restore
 ```
 
-## 📊 Generación de Reportes de Cobertura
+## Generación de Reportes de Cobertura
 
 ### Con ReportGenerator:
 
@@ -173,7 +173,7 @@ reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"coveragereport"
 # Linux: xdg-open coveragereport/index.html
 ```
 
-## ✅ Checklist de Integración
+## Checklist de Integración
 
 - [ ] Proyecto copiado en la ubicación correcta
 - [ ] Proyecto agregado a la solución (.sln)
@@ -183,7 +183,7 @@ reportgenerator -reports:"**/coverage.cobertura.xml" -targetdir:"coveragereport"
 - [ ] IDE reconoce las pruebas (Test Explorer)
 - [ ] Referencias a otros proyectos funcionan correctamente
 
-## 📞 Soporte
+## Soporte
 
 Si encuentras problemas durante la integración:
 
